@@ -50,7 +50,9 @@ http://localhost:8081
 ### Summary
 
 Including the port, mapping is important for accessing the services running inside your Docker containers
-We have MongoDB and Mongo Express set with Docker, fully connected and accessible
+
+We have MongoDB and Mongo Express set with Docker, which are fully connected and accessible.
+
 From this point, we can use a node.js code to access Mongo DB and fetch information. 
 
 
