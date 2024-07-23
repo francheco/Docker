@@ -1,0 +1,29 @@
+
+version: '3'  # Specifies the version of the Docker Compose file format
+
+services:  # Start of services definition
+  web:  # Define the 'web' service
+    image: nginx  # Use the official Nginx image from Docker Hub
+    ports:
+      - "8080:80"  # Map port 80 in the container to port 8080 on the host
+    volumes:
+      - ./html:/usr/share/nginx/html  # Mount the local 'html' directory to the container's nginx html directory
+    networks:
+      - my-network  # Attach to the defined network
+
+  db:  # Define the 'db' service for MySQL
+    image: mysql  # Use the official MySQL image from Docker Hub
+    environment:  # Define environment variables for MySQL configuration
+      MYSQL_ROOT_PASSWORD: admin  # Set the MySQL root password
+      MYSQL_DATABASE: profiles  # Create a new database called 'profiles'
+      MYSQL_USER: admin  # Create a new user called 'admin'
+      MYSQL_PASSWORD: admin  # Set password for 'admin'
+    ports:
+      - "3306:3306"  # Map port 3306 in the container to port 3306 on the host for database access
+    networks:
+      - my-network  # Attach to the defined network
+
+networks:  # Define custom networks
+  my-network:  # Create a custom network named 'my-network'
+
+
